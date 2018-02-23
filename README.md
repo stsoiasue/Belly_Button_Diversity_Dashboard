@@ -6,7 +6,7 @@ My dashboard was deployed on heroku and can be found at the link below:
 
 https://damp-shelf-17886.herokuapp.com/
 
-I was provided a sqlite file with 3 tables which i used in my dashboard:
+I was provided an sqlite file with 3 tables which i used in my dashboard:
 * operational taxonomic unit (otu) ids
 * sample measurements
 * sample metadata
@@ -129,7 +129,7 @@ My dashboard consists of:
 
     ![dropdown](Images/dropdown.png)
 
-* A PIE chart that uses data from the `/samples/<sample>` and `/otu` routes to display the top 10 otu values for a given sample and adjusts based on the selection from the dropdown
+* A PIE chart that uses data from the `/samples/<sample>` and `/otu` routes to display the top 10 otu values for a given sample
 
     ![pie_chart](Images/pie_chart.png)
 
@@ -145,3 +145,7 @@ My dashboard consists of:
 * A Guage Chart that uses data from the route `/wfreq/<sample>` which shows the bellybutton washing frequency for a given sample
 
     ![bubble_chart](Images/gauge.png)
+
+* All of the dashboard components update using `JavaScript` with the user's selection from the provided dropdown
+
+    [this code can be seen here](app/static/js/app.js)
