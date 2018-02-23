@@ -6,7 +6,7 @@ My dashboard was deployed on heroku and can be found at the link below:
 
 https://damp-shelf-17886.herokuapp.com/
 
-I was provided an sqlite file with 3 tables which i used in my dashboard:
+I was provided a sqlite file with 3 tables which i used in my dashboard:
 * operational taxonomic unit (otu) ids
 * sample measurements
 * sample metadata
