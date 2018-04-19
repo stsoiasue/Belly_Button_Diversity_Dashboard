@@ -92,15 +92,15 @@ function optionChanged(sample) {
                             type: 'pie',
                             hovertext: pieDescriptions,
                             insidetextfont: {color: 'ghostwhite'}, 
-                            outsidetextfont: {color: 'ghostwhite'} 
+                            outsidetextfont: {color: 'ghostwhite'},                             
                         }];
 
                         var pieLayout = {
-                            title: 'Most Prevalent Organisims for selected Sample',
+                            title: `Top Bacteria in Sample`,
                             titlefont: {color: 'ghostwhite'},
                             paper_bgcolor: 'transparent',
                             plot_bgcolor: 'transparent',
-                            // legend: {font: {color: 'ghostwhite'}}
+                            legend: {font: {color: 'ghostwhite'}}
                         };
                             
                         var bubbleData = [{
@@ -115,7 +115,7 @@ function optionChanged(sample) {
                         }];
 
                         var bubbleLayout = {
-                            title: 'ADD TITLE',
+                            title: 'Bacteria Proportional to OTU value',
                             titlefont: {color: 'ghostwhite'},
                             paper_bgcolor: 'transparent',
                             plot_bgcolor: 'transparent',
