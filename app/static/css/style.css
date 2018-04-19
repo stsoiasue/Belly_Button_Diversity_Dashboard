@@ -1,16 +1,38 @@
-#metaContainer {
-    border: 1px solid dodgerblue
+/*!
+ * Start Bootstrap - Portfolio Item (https://startbootstrap.com/template-overviews/portfolio-item)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-portfolio-item/blob/master/LICENSE)
+ */
+
+body {
+  padding-top: 54px;
 }
 
-#dropdownDiv {
-    background-color: #eee
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
 }
 
-h4 {
-    margin: 0%;
-    padding: 0%;
-    background-color: dodgerblue;
-    border: 1px solid dodgerblue;
-    color: whitesmoke;
-    text-align: center
+.bg-head-foot{
+  /* background: linear-gradient(to bottom right, blue, aqua) */
+  /* background: linear-gradient(to bottom right, black, gray) */
+  background: black
+}
+
+.section_title{
+  text-align: center
+}
+
+.background{
+  /* background-color: whitesmoke */
+  background: linear-gradient(to bottom right, #0d0d0d, gray)
+}
+
+.img-fluid{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5)
+}
+
+.text{
+  color: ghostwhite
 }
