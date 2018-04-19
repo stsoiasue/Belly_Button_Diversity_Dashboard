@@ -1,35 +1,121 @@
-{% extends "layout.html" %}
-{% block content %}
-    <div class='row'>
-        <div class='col-md-2'>
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>BB Dashboard</title>
+
+    <!-- css references -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">  
+    <link href="{{ url_for('static', filename='css/bootstrap-grid.css') }}" rel="stylesheet">
+    <link rel='stylesheet' href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- js references -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+
+  <body class='background'>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-head-foot fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Stephen Tsoi-A-Sue</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item active navbar-right dropdown">
+                <a class="nav-link dropdown-toggle" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data Models</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown03">
+                  <a class="dropdown-item" href="#">Belly Button Biodiversity Dashboard</a>
+                  <a class="dropdown-item" href="#">Lattitude Analysis</a>
+                  <a class="dropdown-item" href="#">Predicting MVP w/ Machine Learning</a>
+                  <a class="dropdown-item" href="#"></a>
+                </div>
+            </li>
+            
+            <li class="nav-item active">
+              <a class="nav-link text" href="data.html">Contact</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class='container'>
+        
+      <h1 class="my-4 text">Bellybutton Biodiversity:</h1>
+      <p class='text'>Use the interactive charts below to explore samples collected for the <a href='http://robdunnlab.com/projects/belly-button-biodiversity/' target="_blank">belly button biodiversity</a> study</p>
+      <hr>
+
+      <div class='row'>
+          <div class='col-md-2'>
             <div id='dropdownDiv'>
-                <p><strong>SELECT Sample</strong></p>
+                <p class='text'><strong>SELECT Sample</strong></p>
                 <select id='selDataset' onchange="optionChanged(this.value)"></select>
                 <br>
             </div>
-            
+              
             <br>
-
+      
             <div id='metaContainer'>
-                <h4>Sample MetaData</h4>
-                <ul id='metadata' class="list"></ul>
+              <h4 class='text'>Sample MetaData</h4>
+              <ul id='metadata' class="list"></ul>
             </div>
-        </div>
-        
-        <div class='col-md-5'>
-            <div id='pie'></div>
-        </div>
+          </div>
+          
+          <div class='col-md-5'>
+              <div id='pie'></div>
+          </div>
+      
+          <div class='col-md-5'>
+              <div id='gauge'></div>
+          </div>
+      </div>
+      
+      <div class='row'>
+          <div class='col-md-12'>
+              <div id='bubble'></div>
+          </div>
+      </div>
 
-        <div class='col-md-5'>
-            <div id='gauge'></div>
-        </div>
-    </div>
+  </div>
+    <!-- Footer -->
+    <footer class="py-4 bg-head-foot">
+      <div class="container">
+        <p class="m-0 text-center text-white">Brought to you by Stephen Tsoi-A-Sue</p>
+      </div>
+      <!-- /.container -->
+    </footer>
 
-    <div class='row'>
-        <div class='col-md-12'>
-            <div id='bubble'></div>
-        </div>
-    </div>
-    
+    <!-- Bootstrap core JavaScript -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="js/sb-admin-datatables.min.js"></script>
+    <script src="js/sb-admin-charts.min.js"></script>
+
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-{% endblock %}
+
+  </body>
+
+
