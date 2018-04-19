@@ -41,9 +41,16 @@ function optionChanged(sample) {
         var allVals = sampleResponse.sample_values;
         var allIDs = sampleResponse.otu_ids
         
-        var pieValues = allVals.slice(0,10);
-        var pieLabels = allIDs.slice(0,10);
-        
+        var pieValues, pieLabels;
+
+        if (allVals.length > 10) {
+            pieValues = allVals.slice(0,10);
+            pieLabels = allIDs.slice(0,10);
+        } else {
+            pieValues = allVals;
+            pieLabels = allIDs;
+        }
+
         // api call to otu endpoint
         Plotly.d3.json(otuURL, function(error, otuResponse) {
             if (error) {
@@ -84,8 +91,17 @@ function optionChanged(sample) {
                             labels: pieLabels,
                             type: 'pie',
                             hovertext: pieDescriptions,
-                            
+                            insidetextfont: {color: 'ghostwhite'}, 
+                            outsidetextfont: {color: 'ghostwhite'} 
                         }];
+
+                        var pieLayout = {
+                            title: 'Most Prevalent Organisims for selected Sample',
+                            titlefont: {color: 'ghostwhite'},
+                            paper_bgcolor: 'transparent',
+                            plot_bgcolor: 'transparent',
+                            // legend: {font: {color: 'ghostwhite'}}
+                        };
                             
                         var bubbleData = [{
                             x: allIDs,
@@ -98,15 +114,32 @@ function optionChanged(sample) {
                             },
                         }];
 
-                        Plotly.newPlot('pie', pieData);
-                        Plotly.newPlot('bubble', bubbleData);
+                        var bubbleLayout = {
+                            title: 'ADD TITLE',
+                            titlefont: {color: 'ghostwhite'},
+                            paper_bgcolor: 'transparent',
+                            plot_bgcolor: 'transparent',
+                            xaxis: {
+                                title: 'OTU ID',
+                                titlefont: {color: 'ghostwhite'},
+                                tickfont: {color: 'ghostwhite'}
+                            },
+                            yaxis: {
+                                title: 'OTU Value',
+                                titlefont: {color: 'ghostwhite'},
+                                tickfont: {color: 'ghostwhite'}
+                            }
+                        };
 
-                        Plotly.d3.select('#metadata').append('li').attr('id', 'age').text(`AGE: ${age}`)
-                        Plotly.d3.select('#metadata').append('li').attr('id', 'bbType').text(`BBTYPE: ${bbType}`)
-                        Plotly.d3.select('#metadata').append('li').attr('id', 'ethnicity').text(`ETHNICITY: ${ethnicity}`)
-                        Plotly.d3.select('#metadata').append('li').attr('id', 'gender').text(`GENDER: ${gender}`)
-                        Plotly.d3.select('#metadata').append('li').attr('id', 'location').text(`LOCATION: ${location}`)
-                        Plotly.d3.select('#metadata').append('li').attr('id', 'sampleID').text(`SAMPLEID: ${sampleID}`)
+                        Plotly.newPlot('pie', pieData, pieLayout);
+                        Plotly.newPlot('bubble', bubbleData, bubbleLayout);
+
+                        Plotly.d3.select('#metadata').append('li').attr('id', 'age').attr('class', 'text').text(`AGE: ${age}`)
+                        Plotly.d3.select('#metadata').append('li').attr('id', 'bbType').attr('class', 'text').text(`BBTYPE: ${bbType}`)
+                        Plotly.d3.select('#metadata').append('li').attr('id', 'ethnicity').attr('class', 'text').text(`ETHNICITY: ${ethnicity}`)
+                        Plotly.d3.select('#metadata').append('li').attr('id', 'gender').attr('class', 'text').text(`GENDER: ${gender}`)
+                        Plotly.d3.select('#metadata').append('li').attr('id', 'location').attr('class', 'text').text(`LOCATION: ${location}`)
+                        Plotly.d3.select('#metadata').append('li').attr('id', 'sampleID').attr('class', 'text').text(`SAMPLEID: ${sampleID}`)
                         
                         gauge(meterLevel)
 
@@ -226,7 +259,9 @@ function gauge(level){
             hoverinfo: 'label',
             hole: .5,
             type: 'pie',
-            showlegend: false
+            showlegend: false,
+            insidetextfont: {color: 'ghostwhite'},
+            outsidetextfont: {color: 'ghostwhite'},
         }
     ];
 
@@ -243,7 +278,10 @@ function gauge(level){
         xaxis: {zeroline:false, showticklabels:false,
                     showgrid: false, range: [-1, 1]},
         yaxis: {zeroline:false, showticklabels:false,
-                    showgrid: false, range: [-1, 1]}
+                    showgrid: false, range: [-1, 1]},
+        titlefont: {color: 'ghostwhite'},
+        paper_bgcolor: 'transparent',
+        plot_bgcolor: 'transparent'
     };
     Plotly.newPlot('gauge', data, layout);  
 };
