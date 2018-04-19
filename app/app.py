@@ -72,10 +72,21 @@ def sample(sample):
     # sort sample values in descending order
     sample_query = sorted(sample_query, key=lambda x: x[1], reverse=True)
 
+    # create lists to hold query values
+    otu_ids = []
+    sample_values = []
+
+    # loop through query and retain otus with value over 0
+    for sample in sample_query:
+
+        if sample[1] > 0:
+            otu_ids.append(sample[0])
+            sample_values.append(sample[1])
+
     # create dict with lists of ids and sample values  
     sample_dict = {
-        'otu_ids': [otu[0] for otu in sample_query],
-        'sample_values': [otu[1] for otu in sample_query]
+        'otu_ids': otu_ids,
+        'sample_values': sample_values
     }
 
     return jsonify(sample_dict)
